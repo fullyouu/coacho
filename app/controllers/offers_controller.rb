@@ -1,4 +1,5 @@
 class OffersController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
     @offers = Offer.all
@@ -15,6 +16,7 @@ class OffersController < ApplicationController
 
   def create
     @offer = Offer.new(strong_params)
+    @offer.user = current_user
     if @offer.save
       redirect_to offer_path(@offer)
     else
