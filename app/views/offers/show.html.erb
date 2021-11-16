@@ -1,23 +1,29 @@
 <div class="container">
   <h2> <%= @offer.title %> </h2>
-    <p>
-      <strong>Details:</strong>
-      <%= @offer.details %>
-    </p>
+  <p>
+    <strong>Details:</strong>
+    <%= @offer.details %>
+  </p>
 
-    <p>
-      <strong>Price:</strong>
-      <%= @offer.price %>
-    </p>
+  <p>
+    <strong>Price:</strong>
+    <%= @offer.price %>
+  </p>
 
-    <p>
-      <strong>Duration:</strong>
-      <%= @offer.duration %>
-    </p>
+  <p>
+    <strong>Duration:</strong>
+    <%= @offer.duration %>
+  </p>
 
-    <p>
-      <strong>Category:</strong>
-      <%= @offer.category %>
-    </p>
+  <p>
+    <strong>Category:</strong>
+    <%= @offer.category %>
+  </p>
+
+  <%= link_to "Delete #{@offer.title}",
+                  offer_path(@offer),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } %>
+  <%= link_to "Edit #{@offer.title}", edit_offer_path %>
   <%= link_to 'Back', offers_path %>
 </div>
