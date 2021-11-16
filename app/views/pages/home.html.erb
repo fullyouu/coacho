@@ -1,2 +1,29 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner">
+  <div class="container">
+    <h1><strong>Coachoo</strong> helps creative people to grow together!</h1>
+    <p>Help others to grow and be a fuller self.</p>
+    <%= link_to 'Sign up today!', new_user_session_path, class: "btn-primary" %>
+  </div>
+</div>
+
+<div class="container">
+  <h2>How it works</h2>
+  <div class="cards">
+    <div class="card">
+      <%= image_tag "apply.svg" %>
+      <h3>Sign up</h3>
+      <p>Offer your own courses.</p>
+    </div>
+    <div class="card">
+      <%= image_tag "learn.svg" %>
+      <h3>Learn from others</h3>
+      <p>Book courses on our platform.</p>
+    </div>
+    <div class="card">
+      <%= image_tag "product.svg" %>
+      <h3>Create your vision</h3>
+      <p>Apply your new skills.</p>
+    </div>
+  </div>
+<br>
+</div>
