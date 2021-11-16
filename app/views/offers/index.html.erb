@@ -6,11 +6,11 @@
 
   <div class="cards">
     <% @offers.each do |offer| %>
-      <%= link_to offer.name, offer_path(offer) %>
+      <%= link_to offer.title, offer_path(offer) %>
     <% end %>
   </div>
 
-  <%# <div class="link">
-    <p><%= link_to 'Create a new list', new_list_path(@list) %>
-  <%# </div> %>
+  <div class="link">
+    <p><%= link_to 'Create a new offer', new_offer_path(@offer) %></p>
+  </div>
 </div>
