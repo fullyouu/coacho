@@ -3,18 +3,21 @@ class OffersController < ApplicationController
   before_action :set_offer, only: %i[show edit update destroy]
 
   def index
-    @offers = Offer.all
+    @offers = policy_scope(Offer)
   end
 
   def show
+    authorize @offer
   end
 
   def new
     @offer = Offer.new
+    authorize @offer
   end
 
   def create
     @offer = Offer.new(strong_params)
+    authorize @offer
     @offer.user = current_user
     if @offer.save
       redirect_to offer_path(@offer)
