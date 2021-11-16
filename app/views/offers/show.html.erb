@@ -1,0 +1,23 @@
+<div class="container">
+  <h2> <%= @offer.title %> </h2>
+    <p>
+      <strong>Details:</strong>
+      <%= @offer.details %>
+    </p>
+
+    <p>
+      <strong>Price:</strong>
+      <%= @offer.price %>
+    </p>
+
+    <p>
+      <strong>Duration:</strong>
+      <%= @offer.duration %>
+    </p>
+
+    <p>
+      <strong>Category:</strong>
+      <%= @offer.category %>
+    </p>
+  <%= link_to 'Back', offers_path %>
+</div>
