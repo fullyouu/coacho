@@ -1,0 +1,16 @@
+<div class="container">
+
+  <div class="header">
+    <h1>Offers</h1>
+  </div>
+
+  <div class="cards">
+    <% @offers.each do |offer| %>
+      <%= link_to offer.name, offer_path(offer) %>
+    <% end %>
+  </div>
+
+  <%# <div class="link">
+    <p><%= link_to 'Create a new list', new_list_path(@list) %>
+  <%# </div> %>
+</div>
