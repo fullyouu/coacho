@@ -6,9 +6,9 @@
     <%= f.input :duration %>
     <%= f.input :category %>
     <% if @offer.persisted? %>
-      <%= f.submit 'Edit the offer', class: 'btn btn-primary' %>
+      <%= f.submit 'Submit changes', class: 'btn btn-primary' %>
     <% else %>
-      <%= f.submit 'Add a new offer', class:'btn btn-primary' %>
+      <%= f.submit 'Submit new offer', class:'btn btn-primary' %>
     <% end %>
   <% end %>
 </div>
