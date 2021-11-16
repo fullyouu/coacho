@@ -1,0 +1,40 @@
+.container h2 {
+  text-align: center;
+}
+
+.container {
+  width: 900px;
+  margin: auto;
+}
+
+.container p {
+  color: black;
+  opacity: 0.7;
+  font-size: 20px;
+}
+
+.cards {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card {
+  width: 200px;
+  border-radius: 3px;
+  text-align: center;
+  padding: 20px;
+  border: 1px solid rgb(230,230,230);
+}
+
+.card img {
+  height: 100px;
+}
+
+.card h3 {
+  font-size: 18px;
+}
+
+.card p {
+  text-align: center;
+  font-size: 16px;
+}
