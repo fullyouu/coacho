@@ -1,7 +1,14 @@
 require 'faker'
 
+puts "clearing seeds!"
+
+Appointment.destroy_all
+Offer.destroy_all
+User.destroy_all
+
 puts "seeding users!"
 
+users = []
 20.times do
   user = User.new(
     first_name: Faker::Name.first_name,
@@ -13,10 +20,12 @@ puts "seeding users!"
   user.password = "password"
   user.password_confirmation = "password"
   user.save!
+  users << user
 end
 
 puts "seeding offers!"
 
+offers = []
 20.times do
   offer = Offer.new(
     title: Faker::Hobby.activity,
@@ -25,8 +34,9 @@ puts "seeding offers!"
     duration: (0.75 + (rand(7) / 4)).to_s
   )
   offer.category = offer.title
-  offer.user = User.find(rand(1..20))
+  offer.user = users[rand(19)]
   offer.save!
+  offers << offer
 end
 
 puts "seeding appointments!"
@@ -36,9 +46,9 @@ puts "seeding appointments!"
     date: Faker::Date.between(from: Date.today, to: 1.year.from_now),
     status: true
   )
-  appointment.offer = Offer.find(rand(1..20))
-  appointment.user = User.find(rand(1..20))
-  appointment.user = User.find(rand(1..20)) while appointment.user == appointment.offer.user
+  appointment.offer = offers[rand(19)]
+  appointment.user = users[rand(19)]
+  appointment.user = users[rand(19)] while appointment.user == appointment.offer.user
   appointment.save!
 end
 
