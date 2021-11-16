@@ -33,7 +33,7 @@ puts "seeding appointments!"
 
 30.times do
   appointment = Appointment.new(
-    date: "#{rand(21..23)}#{rand(1..12)}#{rand(1..28)}#{rand(7..22)}#{rand(4) * 15}".to_i,
+    date: Faker::Date.between(from: Date.today, to: 1.year.from_now),
     status: true
   )
   appointment.offer = Offer.find(rand(1..20))
