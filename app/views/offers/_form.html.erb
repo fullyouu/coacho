@@ -5,6 +5,7 @@
     <%= f.input :price %>
     <%= f.input :duration %>
     <%= f.input :category %>
+    <%= f.input :photo, as: :file %>
     <% if @offer.persisted? %>
       <%= f.submit 'Submit changes', class: 'btn btn-primary' %>
     <% else %>
