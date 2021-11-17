@@ -7,7 +7,6 @@ class OffersController < ApplicationController
   end
 
   def show
-    authorize @offer
   end
 
   def new
@@ -49,5 +48,6 @@ class OffersController < ApplicationController
 
   def set_offer
     @offer = Offer.find(params[:id])
+    authorize @offer
   end
 end
