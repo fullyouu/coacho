@@ -1,7 +1,8 @@
 <div class="container">
 
   <div class="header">
-    <h1>Offers</h1>
+    <br>
+    <h1><strong>Offers</strong></h1>
   </div>
 
 <% @offers.each do |offer| %>
@@ -23,6 +24,7 @@
 <% end %>
 
   <div class="link">
-    <p><%= link_to 'Create a new offer', new_offer_path %></p>
+    <br>
+    <%= link_to 'Create a new offer', new_offer_path, class: "btn-primary" %>
   </div>
 </div>
