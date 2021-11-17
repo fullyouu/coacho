@@ -6,16 +6,16 @@
   </div>
 
 <% @offers.each do |offer| %>
-  <%= link_to offer_path(offer), class: "add_link" do %>
+  <%= link_to offer_path(offer), class: "card_link" do %>
     <div class="card-product">
-      <%= cl_image_tag offer.photo.key, width: 100, height: 100, crop: :fill, class: "list-image" %>
+      <%= cl_image_tag offer.photo.key, width: 100, height: 100, crop: :fill, class: "card-image" %>
       <div class="card-product-infos">
         <div class="card-product-left">
-          <h2><%= link_to offer.title, offer_path(offer) %></h2>
-          <p><%= link_to offer.details, offer_path(offer) %></p>
+          <h2><%= offer.title%></h2>
+          <p><%= offer.details%></p>
         </div>
         <div class="card-product-right">
-          <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" class="card-trip-user avatar-bordered" />
+          <img src="https://kitt.lewagon.com/placeholder/users/fullyouu" class="card-trip-user avatar-bordered" />
           <h2 class="card-trip-pricing">€ <%= "#{offer.price}"%></h2>
         </div>
       </div>
