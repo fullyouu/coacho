@@ -1,0 +1,62 @@
+.card-infos {
+  display: flex;
+  background: transparent;
+  padding: 10px;
+  border-radius: 10px;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+}
+
+.offer-card {
+  display: flex;
+  flex-direction: column;
+  border: solid 1px lightgray;
+  margin-top: 20px;
+  padding: none;
+  border-radius: 10px;
+  box-shadow: inset 1px 1px 4px rgb(155, 155, 155);
+  min-height: 30rem;
+}
+
+.btn {
+  border: solid 1px rgb(169, 169, 169);
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+.infos {
+  display: flex;
+  justify-content: space-evenly;
+  border-bottom: solid 1px $green;
+  margin: 0 25px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto;
+  padding: 0 10px;
+}
+#details {
+  padding-top: 20px;
+  max-width: 100%;
+  text-overflow: clip;
+  word-wrap: break-word;
+}
+
+#edit-btn {
+  background-color: $green;
+  color: white;
+  font-weight: bold;
+}
+
+#back-btn {
+  color: $green;
+  font-weight: bold;
+}
+
+#delete-btn {
+  background-color: $gray;
+  color: $green;
+  font-weight: bold;
+}

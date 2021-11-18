@@ -1,6 +1,8 @@
 <%= content_tag :div, class: "offer-availability-info", data: {availability: ['November 18, 2021 03:24:00', 'November 19, 2021 03:24:00', 'November 20, 2021 03:24:00']} do %>
 <% end %>
+
 <div class="container">
+  <div class="offer-card">
   <% unless @offer.photo.attached? %>
         <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('default_offer_show.png') %>)">
       <% else %>
@@ -9,38 +11,44 @@
     <%= @offer.title %>
   </div>
 
-  <p>
-    <strong>Details:</strong>
-    <%= @offer.details %>
-  </p>
+  <div class="card-infos">
+    <div class="infos-one">
+      <p>
+        <strong>Category:</strong>
+        <%= @offer.category %>
+      </p>
 
-  <p>
-    <strong>Price:</strong>
-    <%= @offer.price %>
-  </p>
+      <p>
+        <strong>Duration:</strong>
+        <%= @offer.duration %> minutes
+      </p>
+      <p>
+        <strong>Price:</strong>
+        <%= @offer.price %>€
+      </p>
+    </div>
 
-  <p>
-    <strong>Duration:</strong>
-    <%= @offer.duration %>
-  </p>
+    <p id="details">
+      <strong>Details:</strong>
+      <%= @offer.details %>
+    </p>
+  </div>
 
-  <p>
-    <strong>Category:</strong>
-    <%= @offer.category %>
-  </p>
-
-
-  <% if policy(@offer).edit? %>
-    <%= link_to "Edit #{@offer.title}", edit_offer_path(@offer) %>
-  <% end %>
-  <% if policy(@offer).destroy? %>
-    <%= link_to "Delete #{@offer.title}",
+  <div class="buttons">
+    <div>
+      <% if policy(@offer).edit? %>
+        <%= link_to "Edit", edit_offer_path(@offer), class:"btn", id:"edit-btn" %>
+      <% end %>
+      <%= link_to 'Back', offers_path, class:"btn", id:"back-btn" %>
+      <% if policy(@offer).destroy? %>
+      </div>
+        <%= link_to "Delete",
                     offer_path(@offer),
                     method: :delete,
-                    data: { confirm: "Are you sure?" } %>
-  <% end %>
-  <%= link_to 'Back', offers_path %>
-
-  <%= render "datepicker" %>
-
+                    data: { confirm: "Are you sure?" },
+                    class:"btn",
+                    id:"delete-btn" %>
+      <% end %>
+  </div>
 </div>
+  <%= render "datepicker" %>
