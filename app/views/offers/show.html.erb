@@ -1,3 +1,5 @@
+<%= content_tag :div, class: "offer-availability-info", data: {availability: ['November 18, 2021 03:24:00', 'November 19, 2021 03:24:00', 'November 20, 2021 03:24:00']} do %>
+<% end %>
 <div class="container">
   <% unless @offer.photo.attached? %>
         <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('default_offer_show.png') %>)">
@@ -38,4 +40,7 @@
                     data: { confirm: "Are you sure?" } %>
   <% end %>
   <%= link_to 'Back', offers_path %>
+
+  <%= render "datepicker" %>
+
 </div>
