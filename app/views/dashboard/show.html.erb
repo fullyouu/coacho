@@ -18,6 +18,7 @@
       </div>
     </div>
     <div class="grid-box">
+    <h2><strong>Your offers</strong></h2>
       <div class="appointment-box">
         <% current_user.offers.each do |offer| %>
           <%= link_to offer_path(offer), class: "card_link" do %>
@@ -43,10 +44,14 @@
       </div>
     </div>
     <div class="grid-box">
-      <div class="ad-box">
-        <img src="" alt="">
+    <h2><strong>Ads</strong></h2>
+      <div class="ad-box1">
+        <a href="https://www.p1-club.de/">U30 Party Munich</a>
       </div>
-      <div class="ad-box"></div>
+      <br>
+      <div class="ad-box2">
+        <a href="https://www.breuninger.com/de/damen/schuhe/">New shoes at Breuninger</a>
+      </div>
     </div>
   </div>
 </div>
