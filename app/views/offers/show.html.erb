@@ -1,3 +1,6 @@
+<%= content_tag :div, class: "offer-availability-info", data: {availability: ['November 18, 2021 03:24:00', 'November 19, 2021 03:24:00', 'November 20, 2021 03:24:00']} do %>
+<% end %>
+
 <div class="container">
   <div class="offer-card">
   <% unless @offer.photo.attached? %>
@@ -48,3 +51,4 @@
       <% end %>
   </div>
 </div>
+  <%= render "datepicker" %>
