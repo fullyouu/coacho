@@ -10,10 +10,13 @@
         <%= current_user.full_name %>
       </div>
       <div class="city-box">
-        <%= current_user.city %>
+        <i class="fas fa-map-marker-alt"></i>&nbsp<%= current_user.city %>
+      </div>
+      <br>
+      <div class="edit-button-box">
+        <%= link_to 'Edit profile', edit_user_registration_path, class: "btn-primary" %>
       </div>
     </div>
-
     <div class="grid-box">
       <div class="appointment-box">
         <% current_user.offers.each do |offer| %>
@@ -27,7 +30,7 @@
                 </div>
                 <div class="card-product-right">
                   <img src="https://kitt.lewagon.com/placeholder/users/fullyouu" class="card-trip-user avatar-bordered" />
-                  <h2 class="card-trip-pricing">€ <%= "#{offer.price}"%></h2>
+                  <h2 class="card-trip-pricing">€&nbsp<%= "#{offer.price}"%></h2>
                 </div>
               </div>
             </div>
@@ -35,9 +38,10 @@
         <% end %>
       </div>
     </div>
-
     <div class="grid-box">
-      <div class="ad-box"></div>
+      <div class="ad-box">
+        <img src="" alt="">
+      </div>
       <div class="ad-box"></div>
     </div>
   </div>
