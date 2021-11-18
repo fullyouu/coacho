@@ -1,15 +1,15 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
-  # before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :configure_permitted_parameters, if: :devise_controller?
   include Pundit
 
-  # def configure_permitted_parameters
-  #   # For additional fields in app/views/devise/registrations/new.html.erb
-  #   devise_parameter_sanitizer.permit(:sign_up, keys: %i[first_name last_name])
+  def configure_permitted_parameters
+    # For additional fields in app/views/devise/registrations/new.html.erb
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[first_name last_name city])
 
-  #   # For additional in app/views/devise/registrations/edit.html.erb
-  #   devise_parameter_sanitizer.permit(:account_update, keys: %i[first_name last_name])
-  # end
+    # For additional in app/views/devise/registrations/edit.html.erb
+    devise_parameter_sanitizer.permit(:account_update, keys: %i[first_name last_name city])
+  end
 
   # Pundit: white-list approach.
   after_action :verify_authorized, except: :index, unless: :skip_pundit?
