@@ -1,16 +1,34 @@
 <div class="container">
 
   <div class="header">
-    <h1>Offers</h1>
+    <br>
+    <h1><strong>Offers</strong></h1>
   </div>
 
-  <div class="cards">
-    <% @offers.each do |offer| %>
-      <%= link_to offer.title, offer_path(offer) %>
-    <% end %>
-  </div>
+<% @offers.each do |offer| %>
+  <%= link_to offer_path(offer), class: "card_link" do %>
+    <div class="card-product">
+      <% unless offer.photo.attached? %>
+        <%= image_tag asset_path('default_offer_index.png'), width: 100, height: 100, crop: :fill, class: "card-image" %>
+      <% else %>
+        <%= cl_image_tag offer.photo.key, width: 100, height: 100, crop: :fill, class: "card-image" %>
+      <% end %>
+      <div class="card-product-infos">
+        <div class="card-product-left">
+          <h2><%= offer.title%></h2>
+          <p><%= offer.details%></p>
+        </div>
+        <div class="card-product-right">
+          <img src="https://kitt.lewagon.com/placeholder/users/fullyouu" class="card-trip-user avatar-bordered" />
+          <h3 class="card-trip-pricing">€&nbsp<%= "#{offer.price}"%></h3>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>
 
   <div class="link">
-    <p><%= link_to 'Create a new offer', new_offer_path %></p>
+    <br>
+    <%= link_to 'Create a new offer', new_offer_path, class: "btn-primary" %>
   </div>
 </div>

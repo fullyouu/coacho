@@ -1,14 +1,13 @@
-<div class="container">
-  <%= simple_form_for @offer do |f| %>
-    <%= f.input :title %>
-    <%= f.input :details %>
-    <%= f.input :price %>
-    <%= f.input :duration %>
-    <%= f.input :category %>
-    <% if @offer.persisted? %>
-      <%= f.submit 'Submit changes', class: 'btn btn-primary' %>
-    <% else %>
-      <%= f.submit 'Submit new offer', class:'btn btn-primary' %>
-    <% end %>
+<%= simple_form_for @offer do |f| %>
+  <%= f.input :title %>
+  <%= f.input :details %>
+  <%= f.input :price %>
+  <%= f.input :duration %>
+  <%= f.input :category, :collection => %w[Sports Job-Skills Cooking Science Art Music Writing] %>
+  <%= f.input :photo, as: :file %>
+  <% if @offer.persisted? %>
+    <%= f.submit 'Submit changes', class:'btn-primary' %>
+  <% else %>
+    <%= f.submit 'Submit new offer', class:'btn-primary' %>
   <% end %>
-</div>
+<% end %>

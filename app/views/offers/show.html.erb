@@ -1,7 +1,14 @@
 <%= content_tag :div, class: "offer-availability-info", data: {availability: ['November 18, 2021 03:24:00', 'November 19, 2021 03:24:00', 'November 20, 2021 03:24:00']} do %>
 <% end %>
 <div class="container">
-  <h2> <%= @offer.title %> </h2>
+  <% unless @offer.photo.attached? %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('default_offer_show.png') %>)">
+      <% else %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path @offer.photo.key %>)">
+      <% end %>
+    <%= @offer.title %>
+  </div>
+
   <p>
     <strong>Details:</strong>
     <%= @offer.details %>
@@ -22,11 +29,16 @@
     <%= @offer.category %>
   </p>
 
-  <%= link_to "Delete #{@offer.title}",
-                  offer_path(@offer),
-                  method: :delete,
-                  data: { confirm: "Are you sure?" } %>
-  <%= link_to "Edit #{@offer.title}", edit_offer_path %>
+
+  <% if policy(@offer).edit? %>
+    <%= link_to "Edit #{@offer.title}", edit_offer_path(@offer) %>
+  <% end %>
+  <% if policy(@offer).destroy? %>
+    <%= link_to "Delete #{@offer.title}",
+                    offer_path(@offer),
+                    method: :delete,
+                    data: { confirm: "Are you sure?" } %>
+  <% end %>
   <%= link_to 'Back', offers_path %>
 
   <%= render "datepicker" %>
