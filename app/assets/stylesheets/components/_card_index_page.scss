@@ -9,6 +9,7 @@
   height: 120px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 10px;
   display: flex;
   align-items: center;
   margin-bottom: 1rem;
@@ -42,6 +43,9 @@
   height: 100%;
   width: 120px;
   object-fit: cover;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+
 }
 
 .card-product-infos {

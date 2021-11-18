@@ -3,7 +3,7 @@
   <%= f.input :details %>
   <%= f.input :price %>
   <%= f.input :duration %>
-  <%= f.input :category %>
+  <%= f.input :category, :collection => %w[Sports Job-Skills Cooking Science Art Music Writing] %>
   <%= f.input :photo, as: :file %>
   <% if @offer.persisted? %>
     <%= f.submit 'Submit changes', class:'btn-primary' %>
