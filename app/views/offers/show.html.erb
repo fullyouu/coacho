@@ -1,3 +1,5 @@
+<%= content_tag :div, class: "offer-availability-info", data: {availability: ['November 18, 2021 03:24:00', 'November 19, 2021 03:24:00', 'November 20, 2021 03:24:00']} do %>
+<% end %>
 <div class="container">
   <h2> <%= @offer.title %> </h2>
   <p>
@@ -26,4 +28,7 @@
                   data: { confirm: "Are you sure?" } %>
   <%= link_to "Edit #{@offer.title}", edit_offer_path %>
   <%= link_to 'Back', offers_path %>
+
+  <%= render "datepicker" %>
+
 </div>
