@@ -2,14 +2,55 @@
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   height: 70vh;
-}
-
-.grid-box {
   padding: 8px;
 }
 
-.avatar-box, .name-box, .city-box {
+.grid-box {
+  margin: 4px;
+  padding: 8px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.avatar-box, .name-box, .city-box, .edit-button-box {
   display: flex;
   justify-content: center;
   align-items: center;
+  img {
+    flex-grow: 0.5;
+  }
+}
+
+.ad-box1 {
+  border-radius: 10px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  background-image: url("drink.webp");
+  background-size: cover;
+  a {
+    text-decoration: none;
+    color: white;
+  }
+  a:hover {
+    color: rgb(179, 176, 176);
+  }
+}
+
+.ad-box2 {
+  border-radius: 10px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  background-image: url("shoe.jpg");
+  background-size: cover;
+  a {
+    text-decoration: none;
+    color: rgb(70, 68, 68);
+  }
+  a:hover {
+    color: rgb(31, 30, 30);
+  }
 }
