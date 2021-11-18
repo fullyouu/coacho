@@ -1,4 +1,15 @@
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
+  height: 70vh;
+}
+
+.grid-box {
+  padding: 8px;
+}
+
+.avatar-box, .name-box, .city-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
