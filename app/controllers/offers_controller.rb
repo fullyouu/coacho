@@ -7,6 +7,7 @@ class OffersController < ApplicationController
   end
 
   def show
+    @appointment = Appointment.new
   end
 
   def new
