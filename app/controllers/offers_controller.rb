@@ -29,9 +29,11 @@ class OffersController < ApplicationController
   end
 
   def update
-    @offer.update(strong_params)
-
-    redirect_to offer_path(@offer)
+    if @offer.update(strong_params)
+      redirect_to offer_path(@offer)
+    else
+      render :edit
+    end
   end
 
   def destroy
