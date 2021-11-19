@@ -9,7 +9,7 @@
   <%= link_to offer_path(offer), class: "card_link" do %>
     <div class="card-product">
       <% unless offer.photo.attached? %>
-        <%= image_tag asset_path('default_offer_index.png'), width: 100, height: 100, crop: :fill, class: "card-image" %>
+        <%= image_tag asset_path('default_index_offer.png'), width: 100, height: 100, crop: :fill, class: "card-image" %>
       <% else %>
         <%= cl_image_tag offer.photo.key, width: 100, height: 100, crop: :fill, class: "card-image" %>
       <% end %>
@@ -26,7 +26,11 @@
           <p><%= offer.details%></p>
         </div>
         <div class="card-product-right">
-          <%= cl_image_tag offer.user.photo.key, class: "card-trip-user avatar-bordered" %>
+          <% unless offer.user.photo.attached? %>
+            <%= image_tag asset_path('default_avatar.png'), class: "card-trip-user avatar-bordered" %>
+          <% else %>
+            <%= cl_image_tag offer.user.photo.key, class: "card-trip-user avatar-bordered" %>
+          <% end %>
           <h3 class="card-trip-pricing">€&nbsp<%= "#{offer.price}"%></h3>
         </div>
       </div>
