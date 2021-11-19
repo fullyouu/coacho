@@ -5,20 +5,20 @@
     <h1><strong>Offers</strong></h1>
   </div>
 
-  <div class="form-inline">
-    <div class="col-auto my-1">
-      <%= form_tag offers_path, method: :get do %>
+  <%= form_tag offers_path, method: :get do %>
+    <div class="d-flex justify-content-between align-items-center">
+      <div class="my-1 flex-grow-1 w-100">
         <%= text_field_tag :query,
           params[:query],
           class: "form-control",
           placeholder: "Find an offer"
         %>
-    </div>
-    <div class="col-auto my-1">
+      </div>
+    <div class="">
       <%= submit_tag "Search", class: "btn btn-primary" %>
     </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 
 <% @offers.each do |offer| %>
   <%= link_to offer_path(offer), class: "card_link" do %>
