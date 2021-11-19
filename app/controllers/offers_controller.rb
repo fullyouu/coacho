@@ -3,7 +3,12 @@ class OffersController < ApplicationController
   before_action :set_offer, only: %i[show edit update destroy]
 
   def index
-    @offers = policy_scope(Offer)
+    policy_scope(Offer)
+    if params[:query].present?
+      @offers = Offer.global_search(params[:query])
+    else
+      @offers = Offer.all
+    end
   end
 
   def show
