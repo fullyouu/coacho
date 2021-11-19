@@ -4,4 +4,11 @@ class Offer < ApplicationRecord
 
   validates :details, length: { minimum: 20 }
   validates :title, :details, :price, :duration, :category, presence: true
+
+  include PgSearch::Model
+  pg_search_scope :global_search,
+  against: %i[ title details ],
+  using: {
+    tsearch: { prefix: true }
+  }
 end
