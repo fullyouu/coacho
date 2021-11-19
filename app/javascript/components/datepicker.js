@@ -115,7 +115,7 @@ if (date_picker_element) {
 
           // dateToRender = findDateToRender(available_dates, selectedDay, selectedMonth, selectedYear);
           // timeslotsFor(dateToRender);
-          document.getElementById('appointment_date').value = new Date(selectedYear + selectedMonth + selectedYear + " 15:00:00");
+          document.getElementById('appointment_date').value = selectedDate + " 15:00:00+01:00";
           populateDates();
         };
       });

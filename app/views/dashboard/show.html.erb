@@ -24,7 +24,15 @@
             <div class="card-product">
               <div class="card-product-infos">
                 <h2> <%= appoint.offer.title %> </h2>
-                <p><%= appoint.date %> duration: <%= appoint.offer.duration%>h</p>
+                <p>
+                  <% if appoint.date %>
+                    <%= appoint.date.day %>. <%= appoint.date.month %>.
+                    <% if appoint.date.year != Date.new.year %>
+                      <%= appoint.date.year %>
+                    <% end %>
+                  <% end %>
+                   duration: <%= appoint.offer.duration %> minutes
+                </p>
               </div>
             </div>
           <% end %>
