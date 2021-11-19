@@ -1,7 +1,6 @@
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
-  height: 70vh;
   padding: 8px;
 }
 
@@ -21,6 +20,14 @@
   }
 }
 
+.highlight-coach {
+  color: #3992fc;
+}
+
+.highlight-coachee {
+  color: #1EDD88;
+}
+
 .ad-box1 {
   border-radius: 10px;
   height: 250px;
@@ -29,12 +36,12 @@
   align-items: flex-end;
   background-image: url("drink.webp");
   background-size: cover;
-  a {
-    text-decoration: none;
+  text-decoration: none;
+  p {
     color: white;
-  }
-  a:hover {
-    color: rgb(179, 176, 176);
+    &:hover {
+      color: rgb(179, 176, 176);
+      }
   }
 }
 
@@ -46,11 +53,11 @@
   align-items: flex-end;
   background-image: url("shoe.jpg");
   background-size: cover;
-  a {
-    text-decoration: none;
-    color: rgb(70, 68, 68);
-  }
-  a:hover {
-    color: rgb(31, 30, 30);
+  text-decoration: none;
+  p {
+    color: rgb(70, 70, 70);
+    &:hover {
+      color: rgb(26, 26, 26);
+      }
   }
 }

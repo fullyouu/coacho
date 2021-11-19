@@ -18,7 +18,7 @@
       </div>
     </div>
     <div class="grid-box">
-    <h2><strong>Your offers</strong></h2>
+    <h2><strong>Your appointments</strong></h2>
       <div class="appointment-box">
         <% current_user.offers.each do |offer| %>
           <%= link_to offer_path(offer), class: "card_link" do %>
@@ -30,12 +30,19 @@
               <% end %>
               <div class="card-product-infos">
                 <div class="card-product-left">
-                  <h2><%= offer.title%></h2>
+                  <h2>
+                    <%= offer.title%> -&nbspas
+                      <% if offer.user == current_user %>
+                        <span class="highlight-coach"><%= "Coach" %></span>
+                      <% else %>
+                        <span class="highlight-coachee"><%= "Coachee" %></span>
+                    <% end %>
+                  </h2>
                   <p><%= offer.details%></p>
                 </div>
                 <div class="card-product-right">
                   <img src="https://kitt.lewagon.com/placeholder/users/fullyouu" class="card-trip-user avatar-bordered" />
-                  <h2 class="card-trip-pricing">€&nbsp<%= "#{offer.price}"%></h2>
+                  <h3 class="card-trip-pricing">€&nbsp<%= "#{offer.price}"%></h3>
                 </div>
               </div>
             </div>
@@ -45,13 +52,13 @@
     </div>
     <div class="grid-box">
     <h2><strong>Ads</strong></h2>
-      <div class="ad-box1">
-        <a href="https://www.p1-club.de/">U30 Party Munich</a>
-      </div>
+      <a href="https://www.p1-club.de/" class="ad-box1">
+        <p>U30 Party Munich</p>
+      </a>
       <br>
-      <div class="ad-box2">
-        <a href="https://www.breuninger.com/de/damen/schuhe/">New shoes at Breuninger</a>
-      </div>
+      <a href="https://www.breuninger.com/de/damen/schuhe/" class="ad-box2">
+        <p>New shoes at Breuninger</p>
+      </a>
     </div>
   </div>
 </div>
