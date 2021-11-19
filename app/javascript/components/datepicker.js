@@ -97,7 +97,6 @@ if (date_picker_element) {
 
       now = new Date();
       if (year == now.getFullYear() && month == now.getMonth() && (i + 1) < now.getDate()) {
-        console.log("my butt")
         day_element.classList.add('passed');
         if (day_element.classList.contains('available')) {
           day_element.classList.remove('available');
@@ -114,8 +113,9 @@ if (date_picker_element) {
           selected_date_element.textContent = formatDate(selectedDate);
           selected_date_element.dataset.value = selectedDate;
 
-          dateToRender = findDateToRender(available_dates, selectedDay, selectedMonth, selectedYear);
-          timeslotsFor(dateToRender);
+          // dateToRender = findDateToRender(available_dates, selectedDay, selectedMonth, selectedYear);
+          // timeslotsFor(dateToRender);
+          document.getElementById('appointment_date').value = [selectedYear, selectedMonth, selectedYear, "15:00h"];
           populateDates();
         };
       });
