@@ -33,8 +33,9 @@ offers = []
     title: Faker::Hobby.activity,
     details: Faker::Lorem.paragraph(sentence_count: 2, supplemental: true, random_sentences_to_add: 4),
     price: rand(10..40),
-    duration: (0.75 + (rand(7) / 4)).to_s
+    duration: 30
   )
+  offer.duration += rand(8) * 15
   offer.category = offer.title
   offer.user = users[rand(users.count - 1)]
   offer.save!

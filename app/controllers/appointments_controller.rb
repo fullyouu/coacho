@@ -25,6 +25,6 @@ class AppointmentsController < ApplicationController
   private
 
   def strong_params
-    params.require(:appointment).permit(:status, :offer_id, :date)
+    params.require(:appointment).permit(:date)
   end
 end
