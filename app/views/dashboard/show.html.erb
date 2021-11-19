@@ -40,7 +40,7 @@
           <%= link_to offer_path(offer), class: "card_link" do %>
             <div class="card-product">
               <% unless offer.photo.attached? %>
-                <%= image_tag asset_path('default_index_offer.png'), width: 100, height: 100, crop: :fill, class: "card-image" %>
+                <%= image_tag "https://source.unsplash.com/100x100/?#{offer.title}", width: 100, height: 100, crop: :fill, class: "card-image" %>
               <% else %>
                 <%= cl_image_tag offer.photo.key, width: 100, height: 100, crop: :fill, class: "card-image" %>
               <% end %>
