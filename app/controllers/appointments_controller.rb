@@ -7,6 +7,7 @@ class AppointmentsController < ApplicationController
 
   def create
     appointment = Appointment.new(strong_params)
+    appointment.date = params[:appointment_date]
     authorize appointment
     appointment.user = current_user
     offer = Offer.find(params[:offer_id])
@@ -25,6 +26,6 @@ class AppointmentsController < ApplicationController
   private
 
   def strong_params
-    params.require(:appointment).permit(:status, :offer_id, :date)
+    params.require(:appointment).permit(:status, :offer_id, :appointment_date)
   end
 end
