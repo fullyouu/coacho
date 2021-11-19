@@ -16,6 +16,8 @@ users = []
     city: Faker::Address.city,
     certification: Faker::University.name
   )
+  photo = URI.open(Faker::Avatar.image)
+  user.photo.attach(io: photo, filename: 'avatar.png', content_type: 'image/png')
   user.email = "#{user.first_name}.#{user.last_name}@email.com"
   user.password = "password"
   user.password_confirmation = "password"
@@ -30,11 +32,11 @@ offers = []
   offer = Offer.new(
     title: Faker::Hobby.activity,
     details: Faker::Lorem.paragraph(sentence_count: 2, supplemental: true, random_sentences_to_add: 4),
-    price: rand(40),
+    price: rand(10..40),
     duration: (0.75 + (rand(7) / 4)).to_s
   )
   offer.category = offer.title
-  offer.user = users[rand(19)]
+  offer.user = users[rand(users.count - 1)]
   offer.save!
   offers << offer
 end
@@ -46,9 +48,9 @@ puts "seeding appointments!"
     date: Faker::Date.between(from: Date.today, to: 1.year.from_now),
     status: true
   )
-  appointment.offer = offers[rand(19)]
-  appointment.user = users[rand(19)]
-  appointment.user = users[rand(19)] while appointment.user == appointment.offer.user
+  appointment.offer = offers[rand(users.count - 1)]
+  appointment.user = users[rand(users.count - 1)]
+  appointment.user = users[rand(users.count - 1)] while appointment.user == appointment.offer.user
   appointment.save!
 end
 
