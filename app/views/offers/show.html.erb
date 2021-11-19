@@ -37,9 +37,9 @@
   <div class="buttons">
     <div>
       <% if policy(@offer).edit? %>
-        <%= link_to "Edit", edit_offer_path(@offer), class:"btn", id:"edit-btn" %>
+        <%= link_to "Edit", edit_offer_path(@offer), class:"btn btn-primary" %>
       <% end %>
-      <%= link_to 'Back', offers_path, class:"btn btn-secondary", id:"back-btn" %>
+      <%= link_to 'Back', offers_path, class:"btn btn-secondary" %>
       <% if policy(@offer).destroy? %>
       </div>
         <%= link_to "Delete",
