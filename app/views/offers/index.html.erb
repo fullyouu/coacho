@@ -15,7 +15,14 @@
       <% end %>
       <div class="card-product-infos">
         <div class="card-product-left">
-          <h2><%= offer.title%></h2>
+          <h2>
+            <%= offer.title%> -&nbspas
+              <% if offer.user == current_user %>
+                <span class="highlight-coach"><%= "Coach" %></span>
+              <% else %>
+                <span class="highlight-coachee"><%= "Coachee" %></span>
+            <% end %>
+          </h2>
           <p><%= offer.details%></p>
         </div>
         <div class="card-product-right">
