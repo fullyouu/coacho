@@ -18,24 +18,46 @@
       </div>
     </div>
     <div class="grid-box">
-    <h2><strong>Your appointments</strong></h2>
+      <h2><strong>Your appointments</strong></h2>
       <div class="appointment-box">
-          <% @appointments_as_coachee.each do |appoint| %>
-            <div class="card-product">
-              <div class="card-product-infos">
-                <h2> <%= appoint.offer.title %> </h2>
+        <% @appointments_as_coachee.each do |appoint| %>
+          <div class="card-product">
+            <% unless appoint.offer.photo.attached? %>
+              <%= image_tag "https://source.unsplash.com/100x100/?#{appoint.offer.title}", width: 100, height: 100, crop: :fill, class: "card-image" %>
+            <% else %>
+              <%= cl_image_tag appoint.offer.photo.key, width: 100, height: 100, crop: :fill, class: "card-image" %>
+            <% end %>
+            <div class="card-product-infos">
+              <div class="card-product-left">
+                <h2>
+                    <%= appoint.offer.title%> -&nbspas
+                      <% if appoint.offer.user == current_user %>
+                        <span class="highlight-coach"><%= "Coach" %></span>
+                      <% else %>
+                        <span class="highlight-coachee"><%= "Coachee" %></span>
+                    <% end %>
+                  </h2>
                 <p>
                   <% if appoint.date %>
                     <%= appoint.date.day %>. <%= appoint.date.month %>.
                     <% if appoint.date.year != Date.new.year %>
                       <%= appoint.date.year %>
                     <% end %>
-                  <% end %>
-                   duration: <%= appoint.offer.duration %> minutes
+                  <% end %><br>
+                    duration:&nbsp<%= appoint.offer.duration %>&nbspminutes
                 </p>
               </div>
+              <div class="card-product-right">
+                <% unless appoint.offer.user.photo.attached? %>
+                  <%= image_tag asset_path('default_avatar.png'), class: "card-trip-user avatar-bordered" %>
+                <% else %>
+                  <%= cl_image_tag appoint.offer.user.photo.key, class: "card-trip-user avatar-bordered" %>
+                <% end %>
+                <h3 class="card-trip-pricing">€&nbsp<%= "#{appoint.offer.price}"%></h3>
+              </div>
             </div>
-          <% end %>
+          </div>
+        <% end %>
         <% current_user.offers.each do |offer| %>
           <%= link_to offer_path(offer), class: "card_link" do %>
             <div class="card-product">
