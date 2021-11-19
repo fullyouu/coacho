@@ -15,7 +15,7 @@
   margin-top: 20px;
   padding-bottom: 10px;
   border-radius: 10px;
-  box-shadow: inset 1px 1px 4px rgb(155, 155, 155);
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
   min-height: 30rem;
 }
 
@@ -38,20 +38,3 @@
   text-overflow: clip;
   word-wrap: break-word;
 }
-
-// #edit-btn {
-//   background-color: $green;
-//   color: white;
-//   font-weight: bold;
-// }
-
-// #back-btn {
-//   color: $green;
-//   font-weight: bold;
-// }
-
-// #delete-btn {
-//   background-color: $gray;
-//   color: $green;
-//   font-weight: bold;
-// }
