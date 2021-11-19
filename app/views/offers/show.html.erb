@@ -4,7 +4,7 @@
 <div class="container">
   <div class="offer-card">
   <% unless @offer.photo.attached? %>
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('default_show_offer.png') %>)">
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= "https://source.unsplash.com/900x250/?#{@offer.title}" %>')">
       <% else %>
         <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path @offer.photo.key %>)">
       <% end %>
@@ -12,7 +12,7 @@
   </div>
 
   <div class="card-infos">
-    <div class="infos">
+    <div class="infos-one">
       <p>
         <strong>Category:</strong>
         <%= @offer.category %>
@@ -37,18 +37,18 @@
   <div class="buttons">
     <div>
       <% if policy(@offer).edit? %>
-        <%= link_to "Edit", edit_offer_path(@offer), class:"btn btn-primary" %>
+        <%= link_to "Edit", edit_offer_path(@offer), class:"btn", id:"edit-btn" %>
       <% end %>
-      <%= link_to 'Back', offers_path, class:"btn btn-secondary" %>
+      <%= link_to 'Back', offers_path, class:"btn", id:"back-btn" %>
       <% if policy(@offer).destroy? %>
       </div>
         <%= link_to "Delete",
                     offer_path(@offer),
                     method: :delete,
                     data: { confirm: "Are you sure?" },
-                    class:"btn btn-secondary",
+                    class:"btn",
                     id:"delete-btn" %>
       <% end %>
   </div>
 </div>
-<%= render "datepicker", offer: @offer, appointment: @appointment %>
+  <%= render "datepicker", offer: @offer, appointment: @appointment %>
